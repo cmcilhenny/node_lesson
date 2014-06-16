@@ -13,6 +13,7 @@ What is Node?
 ### Some other definitions
 
 => Node allows you to build scalable network applications using Javascript on the server-side.
+=> Node is a command line interpreter for JavaScript.
 
 ### Helpful snipits of info
 	* Ryan Dahl is node's origin author
@@ -22,7 +23,7 @@ What is Node?
 
 ### Node in the real world
 
-=> A few good examples of Node:
+=> A few good uses cases for Node:
 
 	* fast file upload (like Flckr)
 	* real-time data apps (like HipChat)
@@ -47,23 +48,50 @@ So, Node applications are designed to maximize throughput and efficiency, using 
 * What does the above sentence mean? 
 * What are non-blocking I/O and asynchronous events?
 
-		I/O: input/output
+Before we get into definitions, we already have some experience with this basic concept of blocking. Our &lt;script&gt; tags in html are a great example of this. If organized in certain ways, javascript files can block the rendering of a page. It is because of blocking that we always put our script tags last — after links to CSS and insome cases, after html.
 
-		Blocking: 
-		2 people go grocery shopping together with one list. The first takes the list with them to find an item and leaves the second without the list and without the ability to do anything until the 1st comes back. 
+######I/O: 
+input/output
+
+######Blocking: 
+Imagine you're operating the cash register in a bakery. You handle your customers sequentially and synchronously, like this:
+
+* Take order
+* Tell baker to bake the bread
+* Wait until bread is baked
+* Charge money
+* Deliver bread
+* GOTO first -- next customer
 		
-		Non-Blocking:
+######Non-Blocking:
+Given the above scenario, a "non-blocking" implimentation is
 
-		Asynchonous:
+
+* Take order
+* Tell baker to bake the bread, and notify you when finished. When notified:
+	* Charge money
+	* Deliver bread
+* GOTO 1 -- next customer
+
+In the second scenario, you can more efficiently handle requests for bread because, instead of waiting for bread to be ready before handling the next customer, you can start handling the next customer while waiting for bread. 
+
+
+######Asynchonous:
+Asynchronous code doesn’t have to wait – your program can continue to run. You do this to keep your site or app responsive, reducing waiting time for the user (ie. non-blocking).
+
 
 ### Non-Blocking Exercises
 
-yah javascript!
+yah javascript! See attached files.
 
 
+
+
+===
 Resources used
 ===========
 * JavaScript.is(sexy): http://javascriptissexy.com/learn-node-js-completely-and-with-confidence/
 * The Node Beginner Book by Manuel Kiessling
 *  Professional Node.js: Building Javascript Based Scalable Software
 *  Node.js Wikipedia: http://en.wikipedia.org/wiki/Node.js
+*  Node presentation pdf: http://s3.amazonaws.com/four.livejournal/20091117/jsconf.pdf
